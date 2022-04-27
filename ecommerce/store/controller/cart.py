@@ -2,7 +2,7 @@ from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
 from django.contrib import messages
 
-from store.models import Product, Cart
+from store.models import Product, Cart 
 
 
 def addtocart(request):
@@ -36,4 +36,14 @@ def viewcart(request):
     cart= Cart.objects.filter(user=request.user)
     context= {'cart':cart}
     return render(request , "store/cart.html" , context)
-    
+
+def updatecart(request):
+    if request.method == 'POST':
+        prod_id = int(request. POST.get('product_id'))
+        if(Cart.objects.filter(user=request.user , product_id=prod_id)):
+         prod_qty = int(request. POST.get('product_qty')) 
+         cart = Cart.objects.get(product_id=prod_id , user=request.user)
+         cart.product_qty = prod_qty
+         cart.save()
+         return JsonResponse({'status': "Updated successfully"})
+    return redirect('/')

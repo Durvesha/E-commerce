@@ -44,7 +44,6 @@ $(document).ready(function () {
 
             },
             success: function (response) {
-                console.log(response)
                 alertify.success(response.status)
             }
         });
@@ -66,8 +65,7 @@ $(document).ready(function () {
 
             },
             success: function (response) {
-                console.log(response)
-                alertify.success(response.status)
+                // alertify.success(response.status)
             }
         });
     });
