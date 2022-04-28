@@ -45,6 +45,7 @@
                         <button class="btn btn-danger delete-cart-item"><i class="fa fa-trash"></i> Remove</button>
                     </div>
                 {% endfor %}
+                <a href="{% url 'checkout' %}" class="btn btn-outline-primary">Checkout</a>
             {% else %}
                 <h4> Your cart is empty</h4>
             {% endif %}
