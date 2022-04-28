@@ -1,3 +1,4 @@
+from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
 from django.contrib import messages
 
@@ -95,3 +96,13 @@ def placeorder(request):
     
     return redirect('/')
 
+@login_required(login_url='loginpage')
+def razorpaycheck(request):
+  cart = Cart.objects.filter(user=request.user)
+  total_price = 0
+  for item in cart:
+    total_price = total_price + item.product.selling_price * item.product_qty
+    
+  return JsonResponse({
+    'total_price': total_price
+  })

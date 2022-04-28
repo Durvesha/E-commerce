@@ -161,6 +161,9 @@
               <button type="submit" class="btn btn-success w-100">
                 COD | Place Order
               </button>
+              <button type="button" class="btn btn-primary payWithRazorpay w-100 mt-2">
+                Pay with Razorpay
+              </button>
             </div>
             {% else %}
             <h4>Your cart is empty</h4>
@@ -173,3 +176,8 @@
 </div>
 
 {% endblock content %}
+
+{% block scripts %}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% endblock scripts %}
