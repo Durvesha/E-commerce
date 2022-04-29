@@ -30,9 +30,9 @@
                   {{ request.user }}
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  {% comment %} <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li> {% endcomment %}
+                  <li><a class="dropdown-item" href="{% url 'myorders' %}">My Orders</a></li>
+                  {% comment %} <li><a class="dropdown-item" href="#">Another action</a></li> {% endcomment %}
+                  <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
                 </ul>
             </li>

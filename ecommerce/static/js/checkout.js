@@ -26,7 +26,7 @@ $(document).ready(function () {
                 success: function (response) {
                     // console.log(response)
                     var options = {
-                        "key": "rzp_test_4yBbgAs4k39E80", // Enter the Key ID generated from the Dashboard
+                        "key": "rzp_test_UpCxPhIjEOtrFI", // Enter the Key ID generated from the Dashboard
                         "amount":response.total_price , // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
                         "currency": "INR",
                         "name": "MyCart",

@@ -161,9 +161,9 @@
               <button type="submit" class="btn btn-success w-100">
                 COD | Place Order
               </button>
-              <button type="button" class="btn btn-primary payWithRazorpay w-100 mt-2">
+              {% comment %} <button type="button" class="btn btn-primary payWithRazorpay w-100 mt-2">
                 Pay with Razorpay
-              </button>
+              </button> {% endcomment %}
               {% comment %} <div id="paypal-button-container"></div> {% endcomment %}
             </div>
             {% else %}
@@ -219,5 +219,7 @@
   }).render('#paypal-button-container');
 
 </script> {% endcomment %}
+
+
 
 {% endblock scripts %}
