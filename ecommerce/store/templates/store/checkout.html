@@ -26,7 +26,7 @@
                   class="form-control"
                   name="fname"
                   placeholder="Enter First Name"
-                />
+                >
               </div>
               <div class="col-md-6">
                 <label>Last Name:</label>
@@ -37,7 +37,7 @@
                   class="form-control"
                   name="lname"
                   placeholder="Enter Last Name"
-                />
+                >
               </div>
               <div class="col-md-6 mt-2">
                 <label>Email:</label>
@@ -48,7 +48,7 @@
                   class="form-control"
                   name="email"
                   placeholder="Enter Email"
-                />
+                >
               </div>
               <div class="col-md-6 mt-2">
                 <label>Phone Number:</label>
@@ -59,7 +59,7 @@
                   class="form-control"
                   name="phone"
                   placeholder="Enter Phone Number"
-                />
+                >
               </div>
               <div class="col-md-12 mt-2">
                 <label>Address:</label>
@@ -79,7 +79,7 @@
                   class="form-control"
                   name="city"
                   placeholder=" Enter City"
-                />
+                >
               </div>
               <div class="col-md-6 mt-2">
                 <label>State:</label>
@@ -90,7 +90,7 @@
                   class="form-control"
                   name="state"
                   placeholder="Enter State"
-                />
+                >
               </div>
               <div class="col-md-6 mt-2">
                 <label>Country:</label>
@@ -101,7 +101,7 @@
                   class="form-control"
                   name="country"
                   placeholder="Enter Country"
-                />
+                >
               </div>
               <div class="col-md-6 mt-2">
                 <label>Pin Code:</label>
@@ -112,7 +112,7 @@
                   class="form-control"
                   name="pincode"
                   placeholder="Enter Pincode"
-                />
+                >
               </div>
             </div>
           </div>
@@ -164,6 +164,7 @@
               <button type="button" class="btn btn-primary payWithRazorpay w-100 mt-2">
                 Pay with Razorpay
               </button>
+              {% comment %} <div id="paypal-button-container"></div> {% endcomment %}
             </div>
             {% else %}
             <h4>Your cart is empty</h4>
@@ -179,5 +180,44 @@
 
 {% block scripts %}
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  
+{% comment %} <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> {% endcomment %}
+
+<script src="https://www.paypal.com/sdk/js?&client-id=ASbMCKpNHPIwpZnj1hLonZUYzk8QZmgHEehnwMqzlQus47YTk19ebhM_PMWV_CEP1dXc5b-ZGI7esZSG&currency=USD"></script>
+
+{% comment %} PayPal Integration {% endcomment %}
+
+{% comment %} <script>
+  paypal.Buttons({
+
+    // Sets up the transaction when a payment button is clicked
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: '{{ total_price | stringformat:'d' }}' // Can reference variables or functions. Example: `value: document.getElementById('...').value`
+          }
+        }]
+      });
+    },
+
+    // Finalize the transaction after payer approval
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(orderData) {
+        // Successful capture! For dev/demo purposes:
+            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+            var transaction = orderData.purchase_units[0].payments.captures[0];
+            alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+
+        // When ready to go live, remove the alert and show a success message within this page. For example:
+        // var element = document.getElementById('paypal-button-container');
+        // element.innerHTML = '';
+        // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+        // Or go to another URL:  actions.redirect('thank_you.html');
+      });
+    }
+  }).render('#paypal-button-container');
+
+</script> {% endcomment %}
+
 {% endblock scripts %}

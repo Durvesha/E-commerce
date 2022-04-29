@@ -27,19 +27,19 @@ $(document).ready(function () {
                     // console.log(response)
                     var options = {
                         "key": "rzp_test_4yBbgAs4k39E80", // Enter the Key ID generated from the Dashboard
-                        "amount":response.total_price * 100 , // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                        "amount":response.total_price , // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
                         "currency": "INR",
                         "name": "MyCart",
                         "description": "Thank you for buying from us",
                         // "image": "https://example.com/your_logo",
                         // "order_id": "order_9A33XWu170gUtm", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
                         "handler": function (response){
-                            alert(response.razorpay_payment_id);
+                            alert(response.razorpay_payment_id); 
                         },
                         "prefill": {
                             "name": fname+" "+lname,
                             "email": email,
-                            "contact": phone
+                            "contact": phone,
                         },
                         // "notes": {
                         //     "address": "Razorpay Corporate Office"
