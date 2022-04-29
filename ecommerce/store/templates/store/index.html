@@ -5,45 +5,10 @@
     {% include 'store/inc/slider.html' %}
 
     {% comment %} <h1>hello world</h1> {% endcomment %}
-
-
-
-<div class="container my-5">
-        <div class="row">
-            <div class="col-md-15">
-                <h2>Trending</h2>
-                <br>
-                <hr>
-                <br>
-                <div class="row">
-                {% for item in trending_products %}
-                    <div class="col-md-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <a href=" {% url 'productview' item.category.slug item.slug %}">
-                                <div class="category-image">
-                                    <img src="{{ item.product_image.url }}" alt="Product image" class="w-100" />
-                                </div>
-                                <h4 class="text-center"> {{item.name}} </h4>
-                                </a>
-                                <span class="float-start"> Rs {{item.selling_price}} </span>
-                                <span class="float-end mb-2"> 
-                                    {% if item.quantity > 0 %}
-                                        <button type="button" class="btn btn-primary btn-sm me-3 float-start addToCartBtn">  Add to cart  <i class="fa fa-shopping-cart"></i></button>
-                                    {% else %}
-                                    <button type="button" class="btn btn-primary btn-sm me-3 float-start disabled"> Out of stock </button>
-                                    {% endif %}
-                                 </span>
-                            </div>
-                           
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-</div>
+    
     
 
 {% endblock content %}
+
 
 
