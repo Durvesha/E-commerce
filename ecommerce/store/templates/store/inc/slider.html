@@ -9,10 +9,16 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{% static 'images/MyCart.png' %}"  height="550px" class="d-block w-100" alt="..." style="padding-top: 1px;">
+        <a href =" {% url 'collections' %}">
+        <img src="{% static 'images/Slider1.png' %}"  height="670px" class="d-block w-100" alt="..." style="padding-top: 1px;"></a>
       </div>
       <div class="carousel-item">
-        <img src="{% static 'images/Slider.png' %}" height="550px" class="d-block w-100" alt="..." style="padding-top: 1px;">
+        <a href =" {% url 'collections' %}">
+        <img src="{% static 'images/Mycart.png' %}"  height="670px" class="d-block w-100" alt="..." style="padding-top: 1px;"></a>
+      </div>
+      <div class="carousel-item">
+        <a href =" {% url 'collections' %}">
+        <img src="{% static 'images/Slider.png' %}" height="670px" class="d-block w-100" alt="..." style="padding-top: 1px;"></a>
       </div>
       {% comment %} <div class="carousel-item">
         <img src="{% static 'images/MyCart.jpg' %}" heigth="400px" class="d-block w-100" alt="...">
