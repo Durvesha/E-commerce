@@ -24,6 +24,7 @@
           <li class="nav-item">
             <a class="nav-link {% if request.resolver_match.url_name == 'wishlist' %} active {% endif %}" aria-current="page" href="{% url 'wishlist' %}">Wishlist</a>
           </li>
+          
           {% if request.user.is_authenticated %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -31,6 +32,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="{% url 'myorders' %}">My Orders</a></li>
+                  <li><a class="dropdown-item" href="{% url 'feedback' %}">Feedback</a></li>
                   {% comment %} <li><a class="dropdown-item" href="#">Another action</a></li> {% endcomment %}
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>

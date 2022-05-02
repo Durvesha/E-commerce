@@ -1,0 +1,16 @@
+{% extends 'store/layouts/main.html' %}
+
+ {% block content %}
+
+<div class="py-3"  style="background-color: #ffd700">
+  <div class="container">
+    <a class="text-success" href="{% url 'home' %}"> Home /</a>
+    <a class="text-success" href="{% url 'feedback' %}"> Feedback</a>
+  </div>
+</div>
+
+
+{% block body %}
+<h1>Thanks for your response.</h1>
+<p><a href="{% url 'home' %}">Response again?</a></p>
+{% endblock %}

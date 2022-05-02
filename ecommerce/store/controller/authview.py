@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 
 from store.forms import CustomUserForm
+from store.forms import FeedbackForm
 
 # Create your views here.
 
@@ -44,3 +45,17 @@ def logoutpage(request):
         logout(request)
         messages.success(request, "Logged out Successfully")
     return redirect("/")
+
+
+def feedback_form(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Feedback submitted successfully!")
+            return redirect("/")
+    else:
+        form = FeedbackForm()
+        context = { 'form':form }
+    return render(request, 'store/auth/feedback_form.html', context)

@@ -9,6 +9,8 @@ from django.contrib.auth.models import User
 
 import datetime
 import os
+
+from django.forms import CharField
 # Create your models here.
 
 def get_file_path(request, filename):
@@ -91,8 +93,7 @@ class Order(models.Model):
     
     def __str__(self):
         return '{} - {}'.format(self.id , self.tracking_no)
-    
-    
+        
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -115,6 +116,12 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
     
-
-        
-        
+class Feedback(models.Model):
+    customer_name = models.CharField(max_length=150)
+    email = models.EmailField()
+    product = models.TextField()
+    feedback= models.TextField()
+    date= models.DateField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.customer_name

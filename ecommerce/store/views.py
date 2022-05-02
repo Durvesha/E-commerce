@@ -3,6 +3,8 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 from .models import *
 
+
+
 # Create your views here.
 def home(request):
     trending_products = Product.objects.filter(trending=1)
